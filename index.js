@@ -22,7 +22,7 @@ app.use(cookieParser());
 const dbName = "coolTalks";
 const url = "mongodb+srv://jaundev768:DevOps123@cluster-1.szlfag2.mongodb.net/";
 
-mongoose.connect(url + dbName, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(url + dbName, {useUnifiedTopology: true});
 
 
 // All Routes
