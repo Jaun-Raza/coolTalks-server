@@ -200,6 +200,7 @@ router.get('/userinfo/:username', (req, res) => {
     const username = req.params.username;
 
     User.findOne({ username: username }).then((foundUser) => {
+        console.log(foundUser)
         res.status(200).json({ foundUser });
     })
 })
