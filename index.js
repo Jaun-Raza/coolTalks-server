@@ -18,7 +18,7 @@ app.use((req, res, next) => {
   // next();
     next();
 })
-app.use(express.json({limit: '300mb'}));
+app.use(express.json({limit: '5024mb'}));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
