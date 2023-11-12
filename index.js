@@ -7,11 +7,15 @@ const app = express();
 const port = 5000;
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://cooltalks.vercel.app");
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
-    );
+    // res.setHeader("Access-Control-Allow-Origin", "https://cooltalks.vercel.app");
+    // res.header(
+    //     "Access-Control-Allow-Headers",
+    //     "Origin, X-Requested-With, Content-Type, Accept"
+    // );
+  res.header('Access-Control-Allow-Origin', 'https://cooltalks.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  // next();
     next();
 })
 app.use(express.json({limit: '300mb'}));
