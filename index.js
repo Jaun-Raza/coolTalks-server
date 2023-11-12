@@ -24,7 +24,7 @@ app.use(cookieParser());
 
 // DB
 const dbName = "/coolTalks";
-const url = "mongodb+srv://jaundev768:DevOps123@cluster-1.szlfag2.mongodb.net/?retryWrites=true&w=majority&poolSize=100";
+const url = "mongodb+srv://jaundev768:DevOps123@cluster-1.szlfag2.mongodb.net";
 
 const options = {
   useNewUrlParser: true,
