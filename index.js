@@ -19,8 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // DB
-const dbName = "coolTalks";
-const url = "mongodb+srv://jaundev768:DevOps123@cluster-1.szlfag2.mongodb.net/";
+const dbName = "/coolTalks";
+const url = "mongodb+srv://jaundev768:DevOps123@cluster-1.szlfag2.mongodb.net";
 
 mongoose.connect(url + dbName);
 
