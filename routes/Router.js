@@ -15,14 +15,7 @@ router.get('/', (req, res) => {
 
 router.get('/foryou', (req, res) => {
     Post.find({}).then((foundPosts) => {
-        const page = req.query.page || 1;
-      const pageSize = 100; // Adjust as needed
-      const startIndex = (page - 1) * pageSize;
-        const endIndex = startIndex + pageSize;
-
-  const paginatedPosts = foundPosts.slice(startIndex, endIndex);
-        
-        res.status(200).json({ foundPosts: paginatedPosts, success: true });
+        res.status(200).json({ foundPosts , success: true });
     }).catch(err => {
         res.status(400).json({ err, success: false });
     })
