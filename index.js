@@ -24,12 +24,11 @@ app.use(cookieParser());
 
 // DB
 const dbName = "/coolTalks";
-const url = "mongodb+srv://jaundev768:DevOps123@cluster-1.szlfag2.mongodb.net";
+const url = "mongodb+srv://jaundev768:DevOps123@cluster-1.szlfag2.mongodb.net/?retryWrites=true&w=majority&poolSize=100";
 
 const options = {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
-  poolSize: 10, // Correct syntax: poolSize, not poolsize
+  useUnifiedTopology: true
 };
 
 mongoose.connect(url + dbName, options);
