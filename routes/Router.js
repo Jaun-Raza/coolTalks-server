@@ -13,13 +13,20 @@ router.get('/', (req, res) => {
 })
 
 
-router.get('/foryou', (req, res) => {
-    Post.find({}).then((foundPosts) => {
-        res.status(200).json({ foundPosts , success: true });
-    }).catch(err => {
-        res.status(400).json({ err, success: false });
-    })
-})
+const postsPerPage = 5; // Adjust the number of posts per page as needed
+
+router.get('/foryou', async (req, res) => {
+  const page = parseInt(req.query.page) || 1; // Get the page number from the query parameters, default to 1
+  const skip = (page - 1) * postsPerPage;
+
+  try {
+    const foundPosts = await Post.find({}).skip(skip).limit(postsPerPage);
+    res.status(200).json({ foundPosts, success: true });
+  } catch (err) {
+    res.status(400).json({ err, success: false });
+  }
+});
+
 
 router.post('/addPost', (req, res) => {
     const { profilePic, username, image, text, email } = req.body;
