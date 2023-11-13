@@ -1,7 +1,8 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import router from "./routes/Router.js";
-import mongoose from "mongoose";
+import mongoose from "mongoose"
+import compression from "compression";
 
 const app = express();
 const port = 5000;
@@ -12,6 +13,7 @@ app.use((req, res, next) => {
         res.header('Access-Control-Allow-Headers', 'Content-Type');
         next();
 })
+app.use(compression());
 app.use(express.json({limit: '5024mb'}));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
