@@ -7,15 +7,15 @@ const app = express();
 const port = 5000;
 
 app.use((req, res, next) => {
-     try {
         res.header('Access-Control-Allow-Origin', 'https://cooltalks.vercel.app');
         res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
         res.header('Access-Control-Allow-Headers', 'Content-Type');
         next();
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal Server Error', details: error.message });
-    }
+}).then(() => {
+    console.log('load');
+}).catch(error => {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error', details: error.message });
 })
 app.use(express.json({limit: '5024mb'}));
 app.use(express.urlencoded({ extended: true }));
@@ -25,12 +25,7 @@ app.use(cookieParser());
 const dbName = "/coolTalks";
 const url = "mongodb+srv://jaundev768:DevOps123@cluster-1.szlfag2.mongodb.net";
 
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-};
-
-mongoose.connect(url + dbName, options);
+mongoose.connect(url + dbName);
 
 
 // All Routes
