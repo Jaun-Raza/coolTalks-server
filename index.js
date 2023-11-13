@@ -13,8 +13,8 @@ app.use((req, res, next) => {
         res.header('Access-Control-Allow-Headers', 'Content-Type');
         next();
     } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error', details: error.message });
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 })
 app.use(express.json({limit: '5024mb'}));
