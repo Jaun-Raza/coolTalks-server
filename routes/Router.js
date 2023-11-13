@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 })
 
 
-const postsPerPage = 5;
+const postsPerPage = 8;
 
 router.get('/foryou', async (req, res) => {
   try {
